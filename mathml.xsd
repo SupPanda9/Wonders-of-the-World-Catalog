@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:math="http://www.w3.org/1998/Math/MathML"
+           targetNamespace="http://www.w3.org/1998/Math/MathML"
+           elementFormDefault="qualified">
+
+  <xs:element name="root" type="math:RootType"/>
+
+  <xs:complexType name="RootType">
+    <xs:sequence>
+      <xs:element name="math" type="math:MathType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MathType">
+    <xs:sequence>
+      <xs:element name="mo" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="mi" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="mn" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="msup" type="math:SupType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="msqrt" type="math:SqrtType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="mrow" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="mfrac" type="math:FracType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="mtable" type="math:TableType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="mtr" type="math:RowType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="mtd" type="math:CellType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="msubsup" type="math:SubSupType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="munderover" type="math:UnderOverType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="SupType">
+    <xs:sequence>
+      <xs:element name="mi"/>
+      <xs:element name="mn"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SqrtType">
+    <xs:sequence>
+      <xs:element name="mrow"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FracType">
+    <xs:sequence>
+      <xs:element name="mo"/>
+      <xs:element name="mn"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TableType">
+    <xs:sequence>
+      <xs:element name="mtr"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RowType">
+    <xs:sequence>
+      <xs:element name="mtd"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CellType">
+    <xs:sequence>
+      <xs:element name="mo"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SubSupType">
+    <xs:sequence>
+      <xs:element name="mo"/>
+      <xs:element name="mi"/>
+      <xs:element name="mn"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UnderOverType">
+    <xs:sequence>
+      <xs:element name="mo"/>
+      <xs:element name="mi"/>
+      <xs:element name="mn"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

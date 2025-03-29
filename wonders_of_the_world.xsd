@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:complexType name="continents_type">
+        <xs:sequence>
+            <xs:element name="continent_selector" maxOccurs="7">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="continent_name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                    </xs:sequence>
+                    <xs:attribute name="continentID" type="xs:ID" use="required"/>
+                    <xs:attribute name="wonderRef1" type="xs:IDREFS" use="optional"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="types_of_wonders_type">
+        <xs:sequence>
+            <xs:element name="type_of_wonder" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="type_of_wonder_name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                    </xs:sequence>
+                    <xs:attribute name="type_of_wonder_ID" type="xs:ID" use="required"/>
+                    <xs:attribute name="wonderRef2" type="xs:IDREFS" use="optional"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="wonder_type">
+        <xs:sequence>
+            <xs:element name="wonder" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="name" type="xs:string" />
+                        <xs:element name="nickname" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="destination">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="continent" type="xs:string" minOccurs="1"/>
+                                    <xs:element name="country" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="region" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="state" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="city" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="place" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="cont-id" type="xs:IDREF"/>
+                                    <xs:element name="type-id" type="xs:IDREF"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="history">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="creation"  type="xs:string" />
+                                    <xs:element name="changes" type="xs:string" />
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="description" type="xs:string" />
+                        <xs:element name="accessibility">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="transport" type="xs:string" />
+                                    <xs:element name="worktime" type="xs:string" />
+                                    <xs:element name="ticket_price" type="xs:string" />
+                                </xs:sequence>
+                            </xs:complexType>
+                            </xs:element>
+                        <xs:element name="related_landmarks">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="landmark" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+    
+                        <xs:element name="images">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="image" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="image_src">
+                                                    <xs:complexType> 
+                                                        <xs:attribute name="ent" type="xs:ENTITY" use="required"/>
+                                                        <xs:attribute name="href" type="xs:string" use="required"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                            <xs:attribute name="type" type="xs:string" use="required"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="wonderId" type="xs:ID" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="catalog">
+	  	<xs:complexType>
+			<xs:sequence>
+				<xs:element name="continents" type="continents_type"/>
+				<xs:element name="types_of_wonders" type="types_of_wonders_type"/>
+                <xs:element name="wonders" type="wonder_type"/>
+			</xs:sequence>
+	  	</xs:complexType>
+        
+        <xs:key name="wonderKey">
+            <xs:selector xpath="catalog/wonders/wonder"/>
+            <xs:field xpath="@wonderId"/>
+            <xs:field xpath="name"/>
+        </xs:key>
+
+        <xs:key name="continentKey">
+            <xs:selector xpath="catalog/continents/continent_selector"/>
+            <xs:field xpath="@continentID"/>
+        </xs:key>
+
+        <xs:key name="typeKey">
+            <xs:selector xpath="catalog/types_of_wonders/type_of_wonder"/>
+            <xs:field xpath="@type_of_wonder_ID"/>
+        </xs:key>
+
+        <xs:keyref name="wonderContinentKeyRef" refer="continentKey">
+            <xs:selector xpath="catalog/wonders/wonder" />
+            <xs:field xpath="destination/cont-id"/>
+        </xs:keyref>
+
+        <xs:keyref name="wonderTypeKeyRef" refer="typeKey">
+            <xs:selector xpath="catalog/wonders/wonder" />
+            <xs:field xpath="destination/type-id"/>
+        </xs:keyref>
+	</xs:element>
+</xs:schema>

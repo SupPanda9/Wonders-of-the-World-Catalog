@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?>
+<!DOCTYPE math PUBLIC "-//W3C//DTD MathML 3.0//EN" "http://www.w3.org/Math/DTD/mathml3/mathml3.dtd">
+
+<root xmlns="http://www.w3.org/1998/Math/MathML"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="mathml.xsd"> 
+  <!-- Пример на синусова функция -->
+  <math id="sin_function">
+    <mo>Sin</mo>
+    <mo>(</mo>
+    <mi>x</mi>
+    <mo>)</mo>
+  </math>
+  
+  <!-- Пример на квадратен корен -->
+  <math id="sqrt_function">
+    <msqrt>
+      <msqrt>
+      <msqrt>
+        <mrow>
+          <mi>x</mi>
+          <mo>+</mo>
+          <mn>1</mn>
+      </mrow>
+        </msqrt>
+      </msqrt>
+    </msqrt>
+  </math>
+
+  <math id="power-function">
+  <msup>
+    <mi>x</mi>
+    <mn>2</mn>
+  </msup>
+  </math>
+
+  
+  <math id="discriminant-formula">
+    <msup>
+      <mi>b</mi>
+      <mn>2</mn>
+    </msup>
+
+    <mo>-</mo>
+    <mn>4</mn>
+    <mo>&#8290;</mo>
+    <mi>a</mi>
+    <mo>&#8290;</mo>
+    <mi>c</mi>
+  </math>
+
+  <math id="matrix">
+    <mtable>
+      <mtr>
+        <mtd><mo>a</mo></mtd>
+        <mtd><mo>b</mo></mtd>
+      </mtr>
+      <mtr>
+        <mtd><mo>c</mo></mtd>
+        <mtd><mo>d</mo></mtd>
+      </mtr>
+    </mtable>
+    
+  </math>
+
+  <math id="sum">
+  <msubsup> 
+    <mo>&#x2211;</mo>                    <!-- Summation symbol (∑) -->
+    <mrow>
+      <mo>i</mo> 
+      <mo>=</mo>
+      <mi>1</mi>
+    </mrow>           <!-- Lower bound -->
+    <mn>5</mn>        <!-- Upper bound -->                      <!-- Expression being summed -->
+  </msubsup>
+  </math>
+
+  <math id="cond_expectation">
+      <mo>E</mo>
+      <mo>[X | Y=y] =</mo>
+      <msubsup>
+        <mo>&#x2211;</mo>        <!-- Summation symbol (∑) -->
+        <mrow>
+          <mo>x</mo> 
+          <mo>∈</mo>
+          <mi>X</mi>
+        </mrow>           <!-- Lower bound -->
+     </msubsup>
+     <mo>x</mo>
+     <mi>P</mi>
+     <mo>(X=x|Y=y)</mo>
+  </math>
+
+  <math id="fraction">
+    <mfrac>
+      <mo>x</mo>
+      <mn>3</mn>
+    </mfrac>
+  </math>
+
+  <math id="binomial_coefficient">
+    <msubsup>
+      <mo>C</mo>
+      <mo>k</mo>
+      <mo>n</mo>
+    </msubsup>
+    <mo>&#8801;</mo>
+    <mrow>
+    <mo>(</mo>
+    <mfrac linethickness="0">
+      <mi>n</mi>
+      <mi>k</mi>
+    </mfrac>
+    <mo>)</mo>
+    <mo>=</mo>
+    <mfrac>
+      <mi>n!</mi>
+      <mi>k!(n - k)!</mi>
+    </mfrac>
+  </mrow>
+
+  </math>
+
+<math id="infinty">
+<mo>&#8734;</mo>
+</math>
+
+<math id="total_probability">
+  <mo>P(A)=</mo>
+  <munderover>
+  <mo>&#x2211;</mo>
+  <mo>i=1</mo>
+  <mo>n</mo>
+  </munderover>
+  <mo>P(A|</mo>
+  <msub>
+    <mo>H</mo>
+    <mi>i</mi>
+  </msub>
+  <mo>)P(</mo>
+  <msub>
+    <mo>H</mo>
+    <mi>i</mi>
+  </msub>
+  <mo>)</mo>
+</math>
+
+<math id="generating_functions">
+<munderover>
+    <mo>&#x220F;</mo>
+    <mi>i=1</mi>
+    <mn>3</mn>
+</munderover>
+<msub>
+  <mo>G(s)</mo>
+  <msub>
+    <mo>X</mo>
+    <mi>i</mi>
+  </msub>
+</msub>
+<mo>=</mo>
+<msub>
+  <mo>G</mo>
+  <mrow>
+  <msub>
+    <mo>X</mo>
+    <mn>1</mn>
+  </msub>
+  <mo>+</mo>
+  <msub>
+    <mo>X</mo>
+    <mn>2</mn>
+  </msub>
+  <mo>+</mo>
+  <msub>
+    <mo>X</mo>
+    <mn>3</mn>
+  </msub>
+  </mrow>
+</msub>
+<mo>(s)</mo>
+</math>
+
+<math id="integral-function3">
+  <mo>&#x222B;</mo>
+  <munderover>
+    <mo>x</mo>
+    <mo></mo>
+    <mo>n</mo>
+  </munderover>
+  <mo>dx</mo>
+  <mo>=</mo>
+  <mfrac>
+    <mn>1</mn>
+    <mi>n+1</mi>
+  </mfrac>
+  <msup>
+  <mi>x</mi>
+  <mi>n+1</mi>
+  </msup>
+  </math>
+
+<math id="integral-function4">
+<mo>&#x222B;</mo>
+<mfrac>
+  <mn>1</mn>
+  <mo>x</mo>
+</mfrac>
+<mo>dx=</mo>
+<mo>ln|x|</mo>
+</math>
+
+<math id="integral-function5">
+  <mo>&#x222B;</mo>
+  <mo>udv=uv-</mo>
+  <mo>&#x222B;</mo>
+  <mo>vdu</mo>
+</math>
+
+<math id="integral-function6">
+  <mo>&#x222B;</mo>
+  <mfrac>
+    <mn>1</mn>
+    <mo>ax+b</mo>
+  </mfrac>
+  <mo>dx=</mo>
+  <mfrac>
+    <mn>1</mn>
+    <mo>a</mo>
+  </mfrac>
+  <mo>ln|ax+b|</mo>
+</math>
+
+<math id="basic_formula">
+    <msup>
+        <mrow>
+        <mo>Sin</mo>
+        <mo>(</mo>
+        <mi>x</mi>
+        <mo>)</mo>
+        </mrow>
+        <mn>2</mn>
+    </msup>
+    <mo>+</mo>
+    <msup>
+        <mrow>
+        <mo>Cos</mo>
+        <mo>(</mo>
+        <mi>x</mi>
+        <mo>)</mo>
+        </mrow>
+        <mn>2</mn>
+    </msup>
+    <mo>=1</mo>
+    </math>
+  
+  <math id="tryg_formula1">
+    <mo>sin</mo>
+    <mo>(</mo>
+    <mfrac>
+      <mo>x</mo>
+      <mn>2</mn>
+    </mfrac>
+    <mo>)</mo>
+    <mo>=</mo>
+    <mo>±</mo>
+    <msqrt>
+    <mfrac>
+      <mrow>
+        <mn>1</mn>
+        <mo>-</mo>
+        <mo>cos</mo>
+        <mi>x</mi>
+      </mrow>
+      <mn>2</mn>
+    </mfrac>
+    </msqrt>
+  </math>
+
+  <math id="cotg">
+    <mo>cotg</mo>
+    <mo>(</mo>
+    <mfrac>
+      <mi>&#x03C0;</mi>
+      <mn>2</mn>
+    </mfrac>
+    <mo>-</mo>
+    <mi>x</mi>
+    <mo>)</mo>
+    <mo>=</mo>
+    <mo>tan</mo>
+    <mi>x</mi>
+  </math>
+</root>
