@@ -86,6 +86,6 @@ wonders-of-the-world/
 ```
 
 ## UI 📸
-- ![] (media/Card.png)# Card of a Wonder 
-- ![] (media/Card_back.png)# Back of a card of a Wonder
-- ![] (media/Selections.png)# Different selections of Wonders
+- ![](media/Card.png)# Card of a Wonder 
+- ![](media/Card_back.png)# Back of a card of a Wonder
+- ![](media/Selections.png)# Different selections of Wonders
